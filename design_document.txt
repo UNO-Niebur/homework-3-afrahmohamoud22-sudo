@@ -1,0 +1,66 @@
+Board Game Design Document
+
+1. Game Overview
+This is a simple turn-based board game played on numbered spaces.
+Players move forward on the board, can land on events, and take turns in order.
+The goal is to demonstrate program structure, file handling, and state updates.
+
+2. Data Storage Format
+Game data is stored in events.txt.
+
+Format:
+Turn: Player1
+3: Player1
+7: Player2
+12: Treasure
+18: Trap
+
+Meaning:
+- "Turn" stores whose turn it is.
+- Numbered lines map board positions to either a player or an event.
+- Player entries track each player's current location.
+- Event entries define special spaces on the board.
+
+3. Rules
+- The board uses numbered spaces starting at 1.
+- On each turn, the current player can move forward by a chosen number of spaces.
+- After moving, the program checks if the player landed on an event.
+- Example event behavior:
+  - Trap or Troll: move back 2 spaces.
+  - Heal: move forward 1 extra space.
+  - Treasure or Hotel: message only.
+- Players then switch turns in a repeating order.
+
+4. Functions Used
+- load_game_data(filename)
+  Reads turn, players, and events from file.
+- save_game_data(filename, state)
+  Writes updated state back to file.
+- get_board_size(state)
+  Determines board size based on current positions/events.
+- display_game_state(state)
+  Prints board spaces, players, and events.
+- switch_turn(state)
+  Advances turn to next player.
+- trigger_event(state, player)
+  Applies event effects after movement.
+- move_current_player(state)
+  Prompts for movement and updates player position.
+- print_menu()
+  Displays the interaction menu.
+- main()
+  Runs the game loop and user interaction.
+
+5. Interaction Provided
+The player can choose actions from a menu:
+1) Display board
+2) Move current player
+3) Switch turn
+4) Save game
+5) Save and quit
+
+6. Why This Design
+- Uses multiple focused functions for clarity.
+- Separates loading, display, update, and save logic.
+- Keeps game state in one dictionary for easy updates.
+- Meets assignment goals without requiring complex graphics or frameworks.

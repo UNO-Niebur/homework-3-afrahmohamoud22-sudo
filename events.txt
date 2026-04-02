@@ -1,7 +1,7 @@
-Turn: Player1
-3: Player1
-7: Player2
+Turn: Player3
+203: Player1
+507: Player2
+1032: Player3
 12: Treasure
 18: Trap
-22: Player3
 27: Heal
